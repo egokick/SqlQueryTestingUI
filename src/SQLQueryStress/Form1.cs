@@ -571,7 +571,13 @@ namespace SQLQueryStress
         private void btnCopy_Click(object sender, EventArgs e)
         {
             var sqlControl = elementHost1.Child as SqlControl;
-            Clipboard.SetText(sqlControl.Text); 
+            if(sqlControl.Text != "") { //set clipboard to textbox content
+                Clipboard.SetText(sqlControl.Text);
+            }
+            else //set clipboard to empty string
+            {
+                Clipboard.Clear();
+            }
         }
     }
 }
